@@ -7,7 +7,6 @@ String id = "YOUR_NAVER_ID";
 String password = "YOUR_NAVER_PASSWORD";
 
 CookieManager cookieManager;
-List<String> cookies;
 
 NaverAuth auth = NaverAuth.getInstance();
 int responseCode = auth.signIn(id, password);
