@@ -13,6 +13,6 @@ public class NaverAuthTest {
         String password = "YOUR_NAVER_PASSWORD";
 
         NaverAuth auth = NaverAuth.getInstance();
-        assertEquals(auth.signIn(id, password), NaverAuth.LOGIN_SUCCESS);
+        assertEquals(NaverAuth.LOGIN_SUCCESS, auth.signIn(id, password));
     }
 }

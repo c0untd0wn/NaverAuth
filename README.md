@@ -4,12 +4,20 @@ A Java library for signing in to Naver
 ## Usage
 ```java
 String id = "YOUR_NAVER_ID";
-String password = "YOUR_NAVER_password";
+String password = "YOUR_NAVER_PASSWORD";
+
+CookieManager cookieManager;
 List<String> cookies;
 
 NaverAuth auth = NaverAuth.getInstance();
-if(auth.signIn(id, password) == NaverAuth.LOGIN_SUCCESS) {
-    cookies = auth.getCookies();
+int responseCode = auth.signIn(id, password);
+if(responseCode == NaverAuth.LOGIN_SUCCESS) {
+    cookieManager = auth.getCookieManager;
+    CookieHandler.setDefault(cookieManager);
+} else if(responseCode == NaverAuth.CONNECTION_ERROR) {
+    // Check network status
+} else if(responseCode == NaverAuth.WRONG_ID_OR_PASSWORD) {
+    // Check your ID or PASSWORD
 }
 
 // Now access Naver with the cookies you've got
